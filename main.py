@@ -7,7 +7,9 @@ import requests
 conn = sqlite3.connect("games.db")
 cursor = conn.cursor()
 
-if not os.path.exists("games.dp"):
+if os.path.exists("games.dp"):
+    print("banco de dados encontrado")
+else:
     print('banco de dados não encontrado, baixando...')
     URL = "https://dl.dropboxusercontent.com/s/qdxt512zsmxwkku/games.db?dl=0"
     response = requests.get(URL)
